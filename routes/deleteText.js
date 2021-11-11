@@ -11,7 +11,7 @@ router.delete('/',(req, res) => {
   ).then(result => {
     res.send({
       status: 200,
-      message: '删除成功',
+      message: '语料数据删除成功',
       data: [result]
     })
   })

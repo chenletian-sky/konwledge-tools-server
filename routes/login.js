@@ -6,13 +6,13 @@ router.get('/',(req, res) => {
   const { email, pwd } = req.query;
   userModel.findOne({ email })
     .then(result => {
-      console.log(result)
+      // console.log(result)
       let resData = {}
       if (result) {
         if (result.pwd === pwd) {
           // 设置验证 
           req.session.name = result.email
-          console.log('cookie:', req.cookies)
+          // console.log('cookie:', req.cookies)
           resData = {
             status: 200,
             message: '登录成功',

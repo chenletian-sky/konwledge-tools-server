@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', function (req, res, next) {
   // res.render('index', { title: 'Express' });
 
-  console.log("test", req.session)
+  // console.log("test", req.session)
   if (req.session.name === "") {
     return res.redirect("/login")
   }

@@ -6,7 +6,7 @@ var userModel = require('../model/userModel')
 router.get('/', function(req, res, next) {
   // 返回 所有user(注册人员) 数据
   userModel.find({}).then(result=>{
-    console.log(result)
+    // console.log(result)
     res.send(result)
   })
 });

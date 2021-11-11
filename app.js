@@ -20,15 +20,18 @@ const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login')
 const registerRouter = require('./routes/register')
 const apiRouter = require('./routes/api')
+
 const uploadDictionaryRouter = require('./routes/uploadDictionary')
 const getDictionaryRouter = require('./routes/getDictionary')
 const updateDictionaryRouter = require('./routes/updateDictionary')
 const deleteDictionaryRouter = require('./routes/deleteDictionary')
+
 const uploadTextsRouter = require('./routes/uploadTexts')
 const getTextsRouter = require('./routes/getTexts')
 const deleteTextRouter = require('./routes/deleteText')
 
-
+const uploadTrainTextRouter = require('./routes/uploadTrainTexts')
+const deleteTrainTextsRouter = require('./routes/deleteTrainText')
 
 const app = express();
 
@@ -100,6 +103,7 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 // 判断是否登录
 app.use((req, res, next) => {
   if (!req.url.includes('login') && !req.url.includes('register') && !req.url.includes('users') && !req.url.includes('upload_dictionary1') && !req.url.includes('public') && !req.session.name) {
+    console.log("no login")
     res.send({
       status: 403,
       message: '未登录',
@@ -125,6 +129,9 @@ app.use('/delete_dictionary', deleteDictionaryRouter)
 app.use('/upload_texts', uploadTextsRouter)
 app.use('/get_texts', getTextsRouter)
 app.use('/delete_text', deleteTextRouter)
+
+app.use('/upload_trainTexts',uploadTrainTextRouter)
+app.use('/delete_trainTexts',deleteTrainTextsRouter)
 
 
 

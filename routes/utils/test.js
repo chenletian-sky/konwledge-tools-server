@@ -43,7 +43,7 @@ const userModel = require('../../model/userModel')
  */
 router.get('/', function(req, res, next) {
   const {email,pwd,name} =req.query
-  console.log("test",name,pwd)
+  // console.log("test",name,pwd)
   userModel.findOne({email}).then(result =>{
     let resData = {}
     if(result){
