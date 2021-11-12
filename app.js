@@ -102,7 +102,7 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 // 判断是否登录
 app.use((req, res, next) => {
-  if (!req.url.includes('login') && !req.url.includes('register') && !req.url.includes('users') && !req.url.includes('upload_dictionary1') && !req.url.includes('public') && !req.session.name) {
+  if (!req.url.includes('login') && !req.url.includes('register') && !req.url.includes('users') && !req.url.includes('upload_dictionary1') && !req.url.includes('public') && !req.url.includes('api')&& !req.session.name) {
     console.log("no login")
     res.send({
       status: 403,
