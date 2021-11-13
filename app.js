@@ -30,6 +30,8 @@ const uploadTextsRouter = require('./routes/uploadTexts')
 const getTextsRouter = require('./routes/getTexts')
 const deleteTextRouter = require('./routes/deleteText')
 
+const getXferStationRouter = require('./routes/getXferStation')
+
 const uploadTrainTextRouter = require('./routes/uploadTrainTexts')
 const deleteTrainTextsRouter = require('./routes/deleteTrainText')
 
@@ -62,7 +64,7 @@ const app = express();
 // })
 // app.use(express.json({limit: '50mb'}));
 // app.use(express.urlencoded({limit: '50mb'}));
-
+app.disable('etag');
 
 // 解决跨域问题
 app.use(cors({
@@ -129,6 +131,8 @@ app.use('/delete_dictionary', deleteDictionaryRouter)
 app.use('/upload_texts', uploadTextsRouter)
 app.use('/get_texts', getTextsRouter)
 app.use('/delete_text', deleteTextRouter)
+
+app.use('/get_xferStation',getXferStationRouter)
 
 app.use('/upload_trainTexts',uploadTrainTextRouter)
 app.use('/delete_trainTexts',deleteTrainTextsRouter)

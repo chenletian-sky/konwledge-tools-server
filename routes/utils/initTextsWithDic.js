@@ -4,7 +4,7 @@ const router = express.Router();
 const cp = require('child_process')
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.post('/', function (req, res, next) {
   // 1. 数据库名
   // 2. 字典的表名
   // 3. 语料数据的表名
@@ -12,19 +12,24 @@ router.get('/', function (req, res, next) {
   // 5. 用户的 userEmail
   // let {} = req.query
   const userEmail = req.session.name;
-  cp.exec(`python "./public/python/test.py" mongoosedb dictionaries texts texts ${userEmail}`,function(err,stdout){
+  cp.exec(`"./public/python/db_dict_split.exe" mongoosedb dictionaries texts xferStation ${userEmail}`,function(err,stdout){
     let resData = {}
     if(err){
       console.log("error",err)
       resData = {
-        status:404,
+        status:400,
         message:"请求失败",
         data:[]
       }
-      res.send('初始化失败')
+      res.send(resData)
     }else{
       console.log("调用成功")
-      res.send("初始化成功")
+      resData = {
+        status:200,
+        message:"请求成功",
+        data:[]
+      }
+      res.send(resData)
     }
   })
   // cp.on("exit",(code)=>{

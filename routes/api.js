@@ -6,7 +6,7 @@ const testRouter = require('./utils/test')
 const testModelRouter = require('./utils/testModel')
 const initTestRouter = require('./utils/init_test')
 const initTextWithDicRouter = require('./utils/initTextsWithDic')
-
+const jiaguTrainRouter = require('./utils/jiaguTrain')
 
 router.get('/',(req,res)=>{
   res.send("api接口")
@@ -17,6 +17,7 @@ router.use('/test',testRouter)
 router.use('/testModel',testModelRouter)
 router.use('/test_init',initTestRouter)
 router.use('/initTextsWithDic',initTextWithDicRouter)
+router.use('/jiaguTrain',jiaguTrainRouter)
 
 
 module.exports = router;
