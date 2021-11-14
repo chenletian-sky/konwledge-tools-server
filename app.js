@@ -27,13 +27,16 @@ const updateDictionaryRouter = require('./routes/updateDictionary')
 const deleteDictionaryRouter = require('./routes/deleteDictionary')
 
 const uploadTextsRouter = require('./routes/uploadTexts')
+const updateTextsRouter = require('./routes/updateText')
 const getTextsRouter = require('./routes/getTexts')
 const deleteTextRouter = require('./routes/deleteText')
 
 const getXferStationRouter = require('./routes/getXferStation')
+const deletexferStationRouter = require('./routes/deleteXferStation')
 
 const uploadTrainTextRouter = require('./routes/uploadTrainTexts')
 const deleteTrainTextsRouter = require('./routes/deleteTrainText')
+const deleteAllTrainTextsRouter = require('./routes/deleteAllTrainText')
 
 const app = express();
 
@@ -129,14 +132,16 @@ app.use('/update_dictionary', updateDictionaryRouter)
 app.use('/delete_dictionary', deleteDictionaryRouter)
 
 app.use('/upload_texts', uploadTextsRouter)
+app.use('/update_texts',updateTextsRouter)
 app.use('/get_texts', getTextsRouter)
 app.use('/delete_text', deleteTextRouter)
 
 app.use('/get_xferStation',getXferStationRouter)
+app.use('/delete_xferStation',deletexferStationRouter)
 
 app.use('/upload_trainTexts',uploadTrainTextRouter)
 app.use('/delete_trainTexts',deleteTrainTextsRouter)
-
+app.use('/delete_trainTexts_all',deleteAllTrainTextsRouter)
 
 
 

@@ -12,7 +12,7 @@ router.post('/',(req, res) => {
   ).then(() => {
     res.send({
       status: 200, 
-      message: '成功上传字典',
+      message: '成功上传语料',
       data: []
     });
   })

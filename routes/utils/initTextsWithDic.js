@@ -12,7 +12,7 @@ router.post('/', function (req, res, next) {
   // 5. 用户的 userEmail
   // let {} = req.query
   const userEmail = req.session.name;
-  cp.exec(`"./public/python/db_dict_split.exe" mongoosedb dictionaries texts xferStation ${userEmail}`,function(err,stdout){
+  cp.exec(`"./public/python/db_dict_split.exe" mongoosedb dictionaries texts xferStations ${userEmail}`,function(err,stdout){
     let resData = {}
     if(err){
       console.log("error",err)
